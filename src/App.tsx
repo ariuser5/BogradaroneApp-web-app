@@ -1,10 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from './assets/logo.svg';
+import './css/App.css';
+import NavBar from './components/NavBar';
+
+const navItems = ['Home', 'About', 'Contact'];
 
 function App() {
   return (
     <div className="App">
+      <NavBar navItems={navItems}/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
