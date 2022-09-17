@@ -1,30 +1,21 @@
-import React from 'react';
-import logo from './assets/logo.svg';
-import './css/App.css';
 import NavBar from './components/NavBar';
+import { createBogdaroneTheme, ThemeProvider } from "./styles/Theme/BogdaroneThemeProvider";
+import Home from './views/Home';
+import { Stack } from '@mui/material';
 
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = ['About', 'Contact'];
 
 function App() {
-  return (
-    <div className="App">
-      <NavBar navItems={navItems}/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const theme = createBogdaroneTheme(false);
+	
+	return (
+		<ThemeProvider theme={theme}>
+			<Stack className="App">
+				<NavBar companyName='Bogdarone S.R.L.' navItems={navItems}/>
+				<Home/>
+			</Stack>
+		</ThemeProvider>
+	);
 }
 
 export default App;
