@@ -3,6 +3,14 @@ import { Box } from '@mui/system';
 import React from 'react';
 import ContentItem from './ContentItem';
 
+export default function ContentDisplay(): JSX.Element {
+	return (
+		<Box sx={{ flexGrow: 1 }}>
+			<Content/>
+			<ContentPagination/>
+		</Box>
+	);
+}
 
 function Content(): JSX.Element {
 	const [imagesUrls, setImagesUrls] = React.useState(new Array<string>());
@@ -37,15 +45,6 @@ function ContentPagination(): JSX.Element {
 				justifyContent: 'center',
 			}}>
 			<Pagination count={3} color='standard'/>
-		</Box>
-	);
-}
-
-export default function ContentDisplay(): JSX.Element {
-	return (
-		<Box sx={{ flexGrow: 1 }}>
-			<Content/>
-			<ContentPagination/>
 		</Box>
 	);
 }

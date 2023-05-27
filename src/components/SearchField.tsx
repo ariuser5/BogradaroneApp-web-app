@@ -3,12 +3,38 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from '@mui/icons-material/Search';
 import { alpha, styled } from "@mui/material/styles";
 
+export const defaultPlaceHolder = "Search...";
+
+export default function SearchField({
+	placeHolder = defaultPlaceHolder
+}: {
+	placeHolder?: string
+}): JSX.Element {
+	const [text, setText] = React.useState(placeHolder);
+	
+	return (
+		<Search
+			sx={{flexGrow: 1}}
+		>
+			<SearchIconWrapper>
+				<SearchIcon />
+			</SearchIconWrapper>
+			<StyledInputBase
+				placeholder={placeHolder}
+				inputProps={{ 'aria-label': 'search' }}
+			/>
+		</Search>
+	);
+}
+
 const Search = styled('div')(({ theme }) => ({
 	position: 'relative',
 	borderRadius: theme.shape.borderRadius,
 	backgroundColor: alpha(theme.palette.common.white, 0.15),
 	'&:hover': {
-		backgroundColor: alpha(theme.palette.common.white, 0.25),
+		// backgroundColor: alpha(theme.palette.common.white, 0.25),
+		// backgroundColor: "darkred",
+		'caret-color': "darkred"
 	},
 	marginRight: theme.spacing(2),
 	marginLeft: 0,
@@ -33,6 +59,11 @@ const Search = styled('div')(({ theme }) => ({
  const StyledInputBase = styled(InputBase)(({ theme }) => ({
 	color: 'inherit',
 	flexGrow: 1,
+	// caretColor: 'darkred',
+	// 'caret-color': "darkred",
+	'& :hover': {
+		// backgroundColor: 'white'
+	},
 	'& .MuiInputBase-input': {
 		padding: theme.spacing(1, 1, 1, 0),
 		// vertical padding + font size from searchIcon
@@ -41,23 +72,3 @@ const Search = styled('div')(({ theme }) => ({
 		width: '100%',
 	},
 }));
-
-interface SearchFieldProps {
-	placeHolder?: string;
-}
-
-export default function SearchField({placeHolder = "Search..."}: SearchFieldProps): JSX.Element {
-	const [text, setText] = React.useState(placeHolder);
-	
-	return (
-		<Search
-			sx={{flexGrow: 1}}>
-			<SearchIconWrapper>
-				<SearchIcon />
-			</SearchIconWrapper>
-			<StyledInputBase
-				placeholder={placeHolder}
-				inputProps={{ 'aria-label': 'search' }}/>
-		</Search>
-	);
-}

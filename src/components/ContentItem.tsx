@@ -1,12 +1,12 @@
 import { Box, Card } from '@mui/material';
 import logo from './../assets/logo.svg';
 
-export interface ContentItemProps {
+interface Props {
 	imageUrl?: string,
 	description?: string
 }
 
-export default function ContentItem(props: ContentItemProps): JSX.Element {
+export default function ContentItem(props: Props): JSX.Element {
 	return (
 		<Card
 			sx={{

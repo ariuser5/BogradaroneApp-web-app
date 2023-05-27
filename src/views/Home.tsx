@@ -1,6 +1,5 @@
 import React from 'react';
-import './../styles/css/Home.css';
-import { Box } from '@mui/material';
+import './../styles/css/App.css';
 import FilterMenu from '../components/FilterMenu';
 import ContentDisplay from '../components/ContentDisplay';
 
@@ -12,10 +11,10 @@ const HomePage: React.FC<{}> = (props: {}): React.ReactElement<{}, React.JSXElem
 	];
 	
 	return (
-		<Box className="App-Container">
+		<React.Fragment>
 			<FilterMenu filters={filters}/>
 			<ContentDisplay/>
-		</Box>
+		</React.Fragment>
 	);
 }
 

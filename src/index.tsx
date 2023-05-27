@@ -2,14 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/css/index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './dev/reportWebVitals';
+import { createBogdaroneTheme, ThemeProvider } from "./styles/Theme/BogdaroneThemeProvider";
+
+const theme = createBogdaroneTheme(false);
 
 const root = ReactDOM.createRoot(
   	document.getElementById('root') as HTMLElement
 );
 root.render(
 	<React.StrictMode>
-		<App />
+		<ThemeProvider theme={theme}>
+			<App />
+		</ThemeProvider>
 	</React.StrictMode>
 );
 
