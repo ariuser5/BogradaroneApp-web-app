@@ -18,7 +18,8 @@ export default function FilterMenu(props: Props): JSX.Element {
 	return (
 		<Stack
 			spacing='5px'
-			sx={{ paddingTop: '16px'}}>
+			sx={{ paddingTop: '16px'}}
+		>
 			{filterGroupCards}
 		</Stack>
 	);

@@ -1,6 +1,7 @@
 import { DARK, LIGHT } from './colors';
 import { Theme } from '@mui/material/styles/createTheme';
 import { createTheme as createMUITheme } from '@mui/material/styles';
+import { borderColor } from 'polished';
 
 declare module '@mui/material/styles' {
 	interface Palette {
@@ -57,9 +58,31 @@ function createBogdaroneTheme(isDark?: Boolean): Theme {
 		},
 		components: {
 			MuiAppBar: {
-				variants: [],
+				variants: [
+					{
+						props: { className: "Nav-Bar" },
+						style: {
+							backgroundColor: COLORS.PRIMARY,
+							boxShadow: 'none',
+						}
+					},
+					{
+						props: { className: "Menu-Bar" },
+						style: {
+							backgroundColor: COLORS.PRIMARY,
+							boxShadow: 'none',
+						}
+					}
+				],
 				styleOverrides: {
 					root : {
+						backgroundColor: COLORS.PRIMARY
+					}
+				}
+			},
+			MuiContainer: {
+				styleOverrides: {
+					root: {
 						backgroundColor: COLORS.PRIMARY
 					}
 				}
@@ -68,6 +91,16 @@ function createBogdaroneTheme(isDark?: Boolean): Theme {
 				styleOverrides: {
 					root: {
 						color: 'white'
+					}
+				}
+			},
+			MuiInputBase: {
+				variants: [],
+				styleOverrides: {
+					root: {
+						// backgroundColor: COLORS.PRIMARY
+						border: `1px solid ${COLORS.PRIMARY}`,
+						borderRadius: "4px",
 					}
 				}
 			}

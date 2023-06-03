@@ -3,7 +3,7 @@ export { alpha } from '@mui/material/styles'
 
 // Light theme
 export const LIGHT = {
-    PRIMARY: rgb(37, 139, 81),
+    PRIMARY: rgb(39, 115, 1),
     SECONDARY: rgb(205, 231, 241),
     SURFACE_BODY: rgb(250, 250, 250),
     SURFACE_DISABLED: rgb(243, 244, 244),

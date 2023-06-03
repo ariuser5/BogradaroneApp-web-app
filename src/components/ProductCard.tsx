@@ -1,24 +1,25 @@
 import { Box, Card } from '@mui/material';
 import logo from './../assets/logo.svg';
 
-interface Props {
+interface ProductCardProps {
 	imageUrl?: string,
-	description?: string
+	description?: string,
+	margin?: string,
 }
 
-export default function ContentItem(props: Props): JSX.Element {
+export default function ProductCard(props: ProductCardProps): JSX.Element {
 	return (
 		<Card
 			sx={{
 				cursor: 'pointer',
-				width: '250px',
-				height: '350px',
-				margin: '10px',
+				width: '300px',
+				height: '450px',
+				margin: props.margin || '0px',
 			}}>
 			<Box 
 				sx={{ 
 					width: 'auto',
-					height: '200px',
+					height: '250px',
 					borderBottom: '2px solid gray',
 				}}>
 				<img src={props.imageUrl} alt='' className='App-logo' style={{ maxWidth: '100%', maxHeight: '100%' }}/>

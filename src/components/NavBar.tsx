@@ -6,18 +6,20 @@ import Button from '@mui/material/Button';
 import SearchField from './SearchField';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { PageBoundary } from './PageBoundary';
 
 const defaultHomeButtonCaption = 'Home';
 const defaultHomeButonBehavior = () => alert('Home page');
 
-interface Props {
+interface NavBarProps {
 	/**
-		* Injected by the documentation to work in an iframe.
-		* You won't need it on your project.
-		*/
+	* Injected by the documentation to work in an iframe.
+	* You won't need it on your project.
+	*/
 	window?: () => Window;
 	homeItem?: NavItemBuildArgs;
 	navItems?: NavItemBuildArgs[];
+	pageWidth?: string;
 }
 
 export interface NavItemBuildArgs {
@@ -25,17 +27,19 @@ export interface NavItemBuildArgs {
 	onClick: () => void;
 }
 
-export default function NavBar(props: Props): JSX.Element {
+export default function NavBar(props: NavBarProps): JSX.Element {
 	const { homeItem, navItems } = props;
 	
 	return (
-		<AppBar component="nav" position='sticky'>
-			<Toolbar>
-				<MenuButton/>
-				{homeItem === undefined || <HomeButton buildArgs={homeItem}/>}
-				<SearchField/>
-				{navItems === undefined || <RightSideButtons itemsArgs={navItems}/>}
-			</Toolbar>
+		<AppBar className="nav-Bar" component="nav" position='sticky'>
+			<PageBoundary pageWidth={props.pageWidth}>
+				<Toolbar>
+					<MenuButton/>
+					{homeItem === undefined || <HomeButton buildArgs={homeItem}/>}
+					{/* <SearchField/> */}
+					{navItems === undefined || <RightSideButtons itemsArgs={navItems}/>}
+				</Toolbar>
+			</PageBoundary>
 		</AppBar>
 	);
 }
