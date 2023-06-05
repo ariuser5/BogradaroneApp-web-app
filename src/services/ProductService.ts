@@ -7,6 +7,7 @@ export interface ProductService {
 
 export class ProductServiceImpl implements ProductService {
 	async getProducts(): Promise<Product[]> {
-		return getProductsFromRepository();
+		getProductsFromRepository();
+		return [];
 	}
 }
