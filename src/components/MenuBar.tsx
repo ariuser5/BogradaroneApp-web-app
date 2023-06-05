@@ -11,7 +11,7 @@ import Tooltip from "@mui/material/Tooltip";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import { PageBoundary } from "./PageBoundary";
+import { PageHorizontalBoundary } from "./PageHorizontalBoundary";
 import SearchField from "./SearchField";
 import { Container } from "@mui/material";
 
@@ -32,7 +32,7 @@ export default function MenuBar(props: MenuBarProps): JSX.Element {
 	};
 	
 	return (
-		<PageBoundary pageWidth={props.pageWidth}>
+		<PageHorizontalBoundary pageWidth={props.pageWidth}>
 			<Container
 				className="Menu-Bar"
 				sx={{
@@ -119,7 +119,7 @@ export default function MenuBar(props: MenuBarProps): JSX.Element {
 					Logout
 				</MenuItem>
 			</Menu>
-		</PageBoundary>
+		</PageHorizontalBoundary>
 	);
 }
 
@@ -133,7 +133,7 @@ function ProductsMenuBar1(props: MenuBarProps) {
 		setAnchorEl(null);
 	};
 	return (
-		<PageBoundary pageWidth={props.pageWidth}>
+		<PageHorizontalBoundary pageWidth={props.pageWidth}>
 			<Box
 				sx={{
 					display: "flex",
@@ -217,6 +217,6 @@ function ProductsMenuBar1(props: MenuBarProps) {
 					Logout
 				</MenuItem>
 			</Menu>
-		</PageBoundary>
+		</PageHorizontalBoundary>
 	);
 }

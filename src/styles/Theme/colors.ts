@@ -36,7 +36,7 @@ export const LIGHT = {
     ICON_DEFAULT: rgb(117, 117, 117),
     TEXT_DISABLED: rgb(160, 162, 168),
     TEXT_PRIMARY_INVERTED: rgb(255, 255, 255),
-    TEXT_PRIMARY: rgb(33, 33, 33),
+    TEXT_PRIMARY: rgb(225, 226, 226),
     TEXT_SECONDARY: rgb(117, 117, 117),
     TEXT_PRICE_UP: rgb(37, 139, 81),
     TEXT_PRICE_DOWN: rgb(177, 52, 69),

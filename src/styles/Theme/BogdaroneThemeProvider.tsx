@@ -1,7 +1,7 @@
 import { DARK, LIGHT } from './colors';
 import { Theme } from '@mui/material/styles/createTheme';
 import { createTheme as createMUITheme } from '@mui/material/styles';
-import { borderColor } from 'polished';
+import { borderRadius } from 'polished';
 
 declare module '@mui/material/styles' {
 	interface Palette {
@@ -44,6 +44,9 @@ function createBogdaroneTheme(isDark?: Boolean): Theme {
 	const COLORS = isDark ? DARK : LIGHT;
 	return createMUITheme({
 		typography: {},
+		shape: {
+			borderRadius: 4,
+		},
 		palette: {
 			surface: {
 				priceUp: COLORS.SURFACE_PRICE_UP,
@@ -66,24 +69,33 @@ function createBogdaroneTheme(isDark?: Boolean): Theme {
 							boxShadow: 'none',
 						}
 					},
-					{
-						props: { className: "Menu-Bar" },
-						style: {
-							backgroundColor: COLORS.PRIMARY,
-							boxShadow: 'none',
-						}
-					}
 				],
 				styleOverrides: {
 					root : {
-						backgroundColor: COLORS.PRIMARY
+						backgroundColor: COLORS.PRIMARY,
+						// boxShadow: 'none',
 					}
 				}
 			},
 			MuiContainer: {
+				variants: [
+					{
+						props: { className: "Menu-Bar" },
+						style: {
+							backgroundColor: COLORS.PRIMARY,
+							'@media (min-width: 1200px)': {
+								maxWidth: 'none',
+							},
+							borderRadius: "15px",
+						}
+					}
+				],
 				styleOverrides: {
 					root: {
-						backgroundColor: COLORS.PRIMARY
+						backgroundColor: COLORS.PRIMARY,
+						// '@media (min-width: 1200px)': {
+						// 	maxWidth: 'none',
+						// }
 					}
 				}
 			},
@@ -99,10 +111,41 @@ function createBogdaroneTheme(isDark?: Boolean): Theme {
 				styleOverrides: {
 					root: {
 						// backgroundColor: COLORS.PRIMARY
+						color: COLORS.TEXT_PRIMARY,
 						border: `1px solid ${COLORS.PRIMARY}`,
 						borderRadius: "4px",
 					}
 				}
+			},
+			MuiTypography: {
+				variants: [
+					{
+						props: { className: "captionSemiBold" },
+						style: {
+							// fontWeight: 600,
+							// fontSize: "0.75rem",
+							// lineHeight: "1rem",
+						}
+					}
+				],
+				styleOverrides: {
+					root: {
+						color: COLORS.TEXT_PRIMARY,
+					}
+				}
+			},
+			MuiSvgIcon: {
+				variants: [
+					{
+						props: { className: "Search-Icon" },
+						style: {
+							color: COLORS.TEXT_PRIMARY,
+							// fontWeight: 600,
+							// fontSize: "0.75rem",
+							// lineHeight: "1rem",
+						}
+					}
+				],
 			}
 		}
 	});

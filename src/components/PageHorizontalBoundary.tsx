@@ -2,15 +2,15 @@ import React from "react";
 
 const defaultPageWidth = '90%';
 
-interface PageBoundaryProps {
+interface PageHorizontalBoundaryProps {
 	children?: React.ReactNode;
 	pageWidth?: string;
 	suppressCenterAlign?: boolean;
 }
 
-export const PageBoundary: React.FC<PageBoundaryProps> = (
-	props: PageBoundaryProps
-): React.ReactElement<PageBoundaryProps, React.JSXElementConstructor<PageBoundaryProps>> => {
+export const PageHorizontalBoundary: React.FC<PageHorizontalBoundaryProps> = (
+	props: PageHorizontalBoundaryProps
+): React.ReactElement<PageHorizontalBoundaryProps, React.JSXElementConstructor<PageHorizontalBoundaryProps>> => {
 	return (
 		<div 
 			style={{

@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import SearchField from './SearchField';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { PageBoundary } from './PageBoundary';
+import { PageHorizontalBoundary } from './PageHorizontalBoundary';
 
 const defaultHomeButtonCaption = 'Home';
 const defaultHomeButonBehavior = () => alert('Home page');
@@ -32,14 +32,14 @@ export default function NavBar(props: NavBarProps): JSX.Element {
 	
 	return (
 		<AppBar className="nav-Bar" component="nav" position='sticky'>
-			<PageBoundary pageWidth={props.pageWidth}>
+			<PageHorizontalBoundary pageWidth={props.pageWidth}>
 				<Toolbar>
 					<MenuButton/>
 					{homeItem === undefined || <HomeButton buildArgs={homeItem}/>}
 					{/* <SearchField/> */}
 					{navItems === undefined || <RightSideButtons itemsArgs={navItems}/>}
 				</Toolbar>
-			</PageBoundary>
+			</PageHorizontalBoundary>
 		</AppBar>
 	);
 }

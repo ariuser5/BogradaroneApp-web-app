@@ -1,17 +1,17 @@
 import { Box } from '@mui/material';
-import { PageBoundary } from './PageBoundary';
+import { PageHorizontalBoundary } from './PageHorizontalBoundary';
 
-interface Props {
+interface PageContainerProps {
 	page: JSX.Element;
 	pageWidth?: string;
 }
 
-export default function PageContainer(props: Props): JSX.Element {
+export default function PageContainer(props: PageContainerProps): JSX.Element {
 	return (
-		<PageBoundary pageWidth={props.pageWidth}>
+		<PageHorizontalBoundary pageWidth={props.pageWidth}>
 			<Box className="Page-Container">
 				{props.page}
 			</Box>
-		</PageBoundary>
+		</PageHorizontalBoundary>
 	);
 }
