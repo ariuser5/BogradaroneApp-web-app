@@ -1,7 +1,6 @@
 import { DARK, LIGHT } from './colors';
 import { Theme } from '@mui/material/styles/createTheme';
 import { createTheme as createMUITheme } from '@mui/material/styles';
-import { borderRadius } from 'polished';
 
 declare module '@mui/material/styles' {
 	interface Palette {
@@ -86,7 +85,7 @@ function createBogdaroneTheme(isDark?: Boolean): Theme {
 							'@media (min-width: 1200px)': {
 								maxWidth: 'none',
 							},
-							borderRadius: "15px",
+							// borderRadius: "15px",
 						}
 					}
 				],
@@ -107,15 +106,15 @@ function createBogdaroneTheme(isDark?: Boolean): Theme {
 				}
 			},
 			MuiInputBase: {
-				variants: [],
 				styleOverrides: {
 					root: {
-						// backgroundColor: COLORS.PRIMARY
-						color: COLORS.TEXT_PRIMARY,
-						border: `1px solid ${COLORS.PRIMARY}`,
 						borderRadius: "4px",
-					}
-				}
+						'&.Search-Input': {
+							// color: COLORS.TEXT_PRIMARY_INVERTED,
+							color: 'red',
+						}
+					},
+				},
 			},
 			MuiTypography: {
 				variants: [
@@ -139,14 +138,15 @@ function createBogdaroneTheme(isDark?: Boolean): Theme {
 					{
 						props: { className: "Search-Icon" },
 						style: {
-							color: COLORS.TEXT_PRIMARY,
+							// color: COLORS.TEXT_PRIMARY_INVERTED,
+							color: 'red',
 							// fontWeight: 600,
 							// fontSize: "0.75rem",
 							// lineHeight: "1rem",
 						}
 					}
 				],
-			}
+			},
 		}
 	});
 }

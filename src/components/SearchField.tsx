@@ -2,9 +2,10 @@ import React from 'react';
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from '@mui/icons-material/Search';
 import { alpha, styled } from "@mui/material/styles";
-import { DARK, LIGHT } from '../styles/Theme/colors';
 
 export const defaultPlaceHolder = "Search...";
+const searchOverlayOpacity = 0.75;
+const searchOverlayOpacityHoverDelta = 0.1;
 
 export default function SearchField({
 	placeHolder = defaultPlaceHolder
@@ -21,6 +22,7 @@ export default function SearchField({
 				<SearchIcon className='Search-Icon'/>
 			</SearchIconWrapper>
 			<StyledInputBase
+				className='Search-Input'
 				placeholder={placeHolder}
 				inputProps={{ 'aria-label': 'search' }}
 			/>
@@ -30,11 +32,10 @@ export default function SearchField({
 
 const Search = styled('div')(({ theme }) => ({
 	position: 'relative',
-	borderRadius: 'inherit',
-	// borderRadius: theme.shape.borderRadius,
-	backgroundColor: alpha(theme.palette.common.white, 0.5),
+	borderRadius: theme.shape.borderRadius,
+	backgroundColor: alpha(theme.palette.common.white, searchOverlayOpacity),
 	'&:hover': {
-		backgroundColor: alpha(theme.palette.common.white, 0.25),
+		backgroundColor: alpha(theme.palette.common.white, searchOverlayOpacity - searchOverlayOpacityHoverDelta),
 		// backgroundColor: "darkred",
 		// 'caret-color': 'red'
 	},
@@ -50,6 +51,7 @@ const Search = styled('div')(({ theme }) => ({
 
  const SearchIconWrapper = styled('div')(({ theme }) => ({
 	padding: theme.spacing(0, 2),
+	// color: 'inherit',
 	height: '100%',
 	position: 'absolute',
 	pointerEvents: 'none',
@@ -59,7 +61,6 @@ const Search = styled('div')(({ theme }) => ({
 }));
  
  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-	// color: 'inherit',
 	flexGrow: 1,
 	// caretColor: 'darkred',
 	// 'caret-color': "darkred",
@@ -67,6 +68,7 @@ const Search = styled('div')(({ theme }) => ({
 		// backgroundColor: 'white'
 	},
 	'& .MuiInputBase-input': {
+		color: 'inherit',
 		padding: theme.spacing(1, 1, 1, 0),
 		// vertical padding + font size from searchIcon
 		paddingLeft: `calc(1em + ${theme.spacing(4)})`,
