@@ -13,8 +13,8 @@
   }
 }
 
-.App-Container {
-  background-color: #283432;
+.Page-Container {
+  background-color: #bcca7c;
   min-height: 100vh;
   display: flex;
   padding-inline: 15px;

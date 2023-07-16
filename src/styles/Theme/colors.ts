@@ -3,7 +3,7 @@ export { alpha } from '@mui/material/styles'
 
 // Light theme
 export const LIGHT = {
-    PRIMARY: rgb(37, 139, 81),
+    PRIMARY: rgb(39, 115, 1),
     SECONDARY: rgb(205, 231, 241),
     SURFACE_BODY: rgb(250, 250, 250),
     SURFACE_DISABLED: rgb(243, 244, 244),
@@ -35,11 +35,9 @@ export const LIGHT = {
     DATAGRID_ROW_SELECTED: rgb(228, 244, 250),
     ICON_DEFAULT: rgb(117, 117, 117),
     TEXT_DISABLED: rgb(160, 162, 168),
-    TEXT_PRIMARY_INVERTED: rgb(255, 255, 255),
-    TEXT_PRIMARY: rgb(33, 33, 33),
+    TEXT_PRIMARY_INVERTED: rgb(30, 29, 29),
+    TEXT_PRIMARY: rgb(225, 226, 226),
     TEXT_SECONDARY: rgb(117, 117, 117),
-    TEXT_PRICE_UP: rgb(37, 139, 81),
-    TEXT_PRICE_DOWN: rgb(177, 52, 69),
     BORDER_CARD: rgb(227, 227, 227),
     BORDER_CHIP_HOVER: rgb(212, 212, 212),
     BORDER_CHIP: rgb(227, 227, 227),
@@ -92,8 +90,6 @@ export const DARK = {
     TEXT_PRIMARY: rgb(225, 226, 226),
     TEXT_PRIMARY_INVERTED: rgb(33, 33, 33),
     TEXT_SECONDARY: rgb(159, 163, 167),
-    TEXT_PRICE_UP: rgb(41, 187, 104),
-    TEXT_PRICE_DOWN: rgb(232, 68, 90),
     BORDER_CARD: rgb(65, 75, 83),
     BORDER_CHIP: rgb(67, 76, 85),
     BORDER_CHIP_HOVER: rgb(83, 93, 103),

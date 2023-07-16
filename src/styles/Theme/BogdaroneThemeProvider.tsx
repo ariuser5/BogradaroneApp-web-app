@@ -43,6 +43,9 @@ function createBogdaroneTheme(isDark?: Boolean): Theme {
 	const COLORS = isDark ? DARK : LIGHT;
 	return createMUITheme({
 		typography: {},
+		shape: {
+			borderRadius: 4,
+		},
 		palette: {
 			surface: {
 				priceUp: COLORS.SURFACE_PRICE_UP,
@@ -57,10 +60,41 @@ function createBogdaroneTheme(isDark?: Boolean): Theme {
 		},
 		components: {
 			MuiAppBar: {
-				variants: [],
+				variants: [
+					{
+						props: { className: "Nav-Bar" },
+						style: {
+							backgroundColor: COLORS.PRIMARY,
+							boxShadow: 'none',
+						}
+					},
+				],
 				styleOverrides: {
 					root : {
-						backgroundColor: COLORS.PRIMARY
+						backgroundColor: COLORS.PRIMARY,
+						// boxShadow: 'none',
+					}
+				}
+			},
+			MuiContainer: {
+				variants: [
+					{
+						props: { className: "Menu-Bar" },
+						style: {
+							backgroundColor: COLORS.PRIMARY,
+							'@media (min-width: 1200px)': {
+								maxWidth: 'none',
+							},
+							// borderRadius: "15px",
+						}
+					}
+				],
+				styleOverrides: {
+					root: {
+						backgroundColor: COLORS.PRIMARY,
+						// '@media (min-width: 1200px)': {
+						// 	maxWidth: 'none',
+						// }
 					}
 				}
 			},
@@ -70,7 +104,49 @@ function createBogdaroneTheme(isDark?: Boolean): Theme {
 						color: 'white'
 					}
 				}
-			}
+			},
+			MuiInputBase: {
+				styleOverrides: {
+					root: {
+						borderRadius: "4px",
+						'&.Search-Input': {
+							// color: COLORS.TEXT_PRIMARY_INVERTED,
+							color: 'red',
+						}
+					},
+				},
+			},
+			MuiTypography: {
+				variants: [
+					{
+						props: { className: "captionSemiBold" },
+						style: {
+							// fontWeight: 600,
+							// fontSize: "0.75rem",
+							// lineHeight: "1rem",
+						}
+					}
+				],
+				styleOverrides: {
+					root: {
+						color: COLORS.TEXT_PRIMARY,
+					}
+				}
+			},
+			MuiSvgIcon: {
+				variants: [
+					{
+						props: { className: "Search-Icon" },
+						style: {
+							// color: COLORS.TEXT_PRIMARY_INVERTED,
+							color: 'red',
+							// fontWeight: 600,
+							// fontSize: "0.75rem",
+							// lineHeight: "1rem",
+						}
+					}
+				],
+			},
 		}
 	});
 }

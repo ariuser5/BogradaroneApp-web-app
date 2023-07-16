@@ -1,10 +1,16 @@
 import React from 'react';
-import './../styles/css/Home.css';
-import { Box } from '@mui/material';
+import './../styles/css/App.css';
 import FilterMenu from '../components/FilterMenu';
-import ContentDisplay from '../components/ContentDisplay';
+import ProductsDisplayBox from '../components/ProductsDisplayBox/ProductsDisplayBox';
+import { Product } from '../models/Types';
 
-const HomePage: React.FC<{}> = (props: {}): React.ReactElement<{}, React.JSXElementConstructor<{}>> => {
+interface HomePageProps {
+	products?: Product[] | Promise<Product[]>;
+}
+
+const HomePage: React.FC<HomePageProps> = (
+	props: HomePageProps
+): React.ReactElement<HomePageProps, React.JSXElementConstructor<{}>> => {
 	
 	const filters = [
 		{ text: 'abc' },
@@ -12,10 +18,10 @@ const HomePage: React.FC<{}> = (props: {}): React.ReactElement<{}, React.JSXElem
 	];
 	
 	return (
-		<Box className="App-Container">
+		<React.Fragment>
 			<FilterMenu filters={filters}/>
-			<ContentDisplay/>
-		</Box>
+			<ProductsDisplayBox {...props}/>
+		</React.Fragment>
 	);
 }
 

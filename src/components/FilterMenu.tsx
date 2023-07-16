@@ -5,11 +5,11 @@ export interface FilterGroup {
 	text: string
 }
 
-export interface FilterMenuProps {
+interface Props {
 	filters: FilterGroup[];
 }
 
-export default function FilterMenu(props: FilterMenuProps): JSX.Element {
+export default function FilterMenu(props: Props): JSX.Element {
 	let count = 0;
 	const filterGroupCards = props.filters.map((filterGroup) => 
 		<CategoryFilterCollapse key={count++} text={filterGroup.text}/>
@@ -18,7 +18,8 @@ export default function FilterMenu(props: FilterMenuProps): JSX.Element {
 	return (
 		<Stack
 			spacing='5px'
-			sx={{ paddingTop: '16px'}}>
+			sx={{ paddingTop: '16px'}}
+		>
 			{filterGroupCards}
 		</Stack>
 	);
