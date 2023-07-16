@@ -10,7 +10,7 @@ import Tooltip from "@mui/material/Tooltip";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import { PageHorizontalBoundary } from "./PageHorizontalBoundary";
+import { PageHorizontalBoundary } from "../styling/PageHorizontalBoundary";
 import SearchField from "./SearchField";
 import { Container } from "@mui/material";
 

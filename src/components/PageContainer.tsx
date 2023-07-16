@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { PageHorizontalBoundary } from './PageHorizontalBoundary';
+import { PageHorizontalBoundary } from './styling/PageHorizontalBoundary';
 
 interface PageContainerProps {
 	page: JSX.Element;

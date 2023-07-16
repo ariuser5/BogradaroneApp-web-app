@@ -1,7 +1,7 @@
 import React from 'react';
 import './../styles/css/App.css';
 import FilterMenu from '../components/FilterMenu';
-import ProductsDisplayBox from '../components/ProductsDisplayBox';
+import ProductsDisplayBox from '../components/ProductsDisplayBox/ProductsDisplayBox';
 import { Product } from '../models/Types';
 
 interface HomePageProps {

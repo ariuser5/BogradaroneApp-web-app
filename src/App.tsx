@@ -7,7 +7,7 @@ import Contact from './views/Contact';
 import PageContainer from './components/PageContainer';
 import AddsContainer from './components/AddsContainer';
 import PageFooter from './components/PageFooter';
-import MenuBar from './components/MenuBar';
+import MenuBar from './components/MenuBar/MenuBar';
 import { RealmOfInterestModel } from './viewmodels/RealmOfOnterestModel';
 import { ProductService, ProductServiceImpl } from './services/ProductService';
 import { Product } from './models/Types';
@@ -29,21 +29,13 @@ function App() {
 	const [productService, setProductService] = useState<ProductService>(new ProductServiceImpl());
 	const [realmOfInterest, setRealmOfInterest] = useState<RealmOfInterestModel>();
 	
-	useEffect(() => {
-		productService.getProducts()
-			.then((products: Product[]) => setDisplayedPage(<Home products={products}/>));
-	}, [productService]);
-	
-	useEffect(() => {
-		// Simulate a db query for getting the viewModel
-		new Promise((resolve) => setTimeout(resolve, 3000))
-			.then(() => setRealmOfInterest(_tempRealmOfInterest));
-	}, [productService]);
-	
-	const handleHomeClick = useCallback(() => {
+	const loadHomePage = useCallback(() => {
 		const loadingProducts = productService.getProducts();
-		if (displayedPage !== homePage) setDisplayedPage(homePage);
-		loadingProducts.then((products: Product[]) => setDisplayedPage(<Home products={products}/>))
+		setDisplayedPage(<Home products={loadingProducts} />);
+	}, [productService]);
+
+	const handleHomeClick = useCallback(() => {
+		loadHomePage();
 	}, [displayedPage, productService]);
 	
 	const handleAboutClick = useCallback(() => {
@@ -53,6 +45,14 @@ function App() {
 	const handleContactClick = useCallback(() => {
 		if (displayedPage !== contactPage) setDisplayedPage(contactPage);
 	}, [displayedPage]);
+
+	useEffect(loadHomePage, [productService]);
+	
+	useEffect(() => {
+		// Simulate a db query for getting the viewModel
+		new Promise((resolve) => setTimeout(resolve, 3000))
+			.then(() => setRealmOfInterest(_tempRealmOfInterest));
+	}, [productService]);
 	
 	return (
 		<Stack className="App">

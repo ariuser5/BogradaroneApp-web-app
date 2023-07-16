@@ -1,5 +1,4 @@
 import { Box, Card } from '@mui/material';
-import logo from './../assets/logo.svg';
 
 interface ProductCardProps {
 	imageUrl?: string,
