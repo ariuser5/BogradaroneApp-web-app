@@ -10,7 +10,7 @@ import Tooltip from "@mui/material/Tooltip";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import { PageHorizontalBoundary } from "../styling/PageHorizontalBoundary";
+import { PageHorizontalBoundary } from "../layout/PageHorizontalBoundary";
 import SearchField from "./SearchField";
 import { Container } from "@mui/material";
 
@@ -18,7 +18,7 @@ interface MenuBarProps {
 	pageWidth?: string;
 }
 
-export default function MenuBar(props: MenuBarProps): JSX.Element {
+export default function SearchMenuBar(props: MenuBarProps): JSX.Element {
 	const [anchorElement, setAnchorElement] = React.useState<null | HTMLElement>(null);
 	const open = Boolean(anchorElement);
 	
@@ -31,7 +31,7 @@ export default function MenuBar(props: MenuBarProps): JSX.Element {
 	};
 	
 	return (
-		<PageHorizontalBoundary pageWidth={props.pageWidth}>
+		<React.Fragment>
 			<Container
 				className="Menu-Bar"
 				sx={{
@@ -118,6 +118,6 @@ export default function MenuBar(props: MenuBarProps): JSX.Element {
 					Logout
 				</MenuItem>
 			</Menu>
-		</PageHorizontalBoundary>
+		</React.Fragment>
 	);
 }

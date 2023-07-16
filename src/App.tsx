@@ -4,13 +4,11 @@ import { useCallback, useEffect, useState } from 'react';
 import Home from './views/Home';
 import About from './views/About';
 import Contact from './views/Contact';
-import PageContainer from './components/PageContainer';
+import PageContentDisplay from './components/PageContentDisplay';
 import AddsContainer from './components/AddsContainer';
 import PageFooter from './components/PageFooter';
-import MenuBar from './components/MenuBar/MenuBar';
 import { RealmOfInterestModel } from './viewmodels/RealmOfOnterestModel';
 import { ProductService, ProductServiceImpl } from './services/ProductService';
-import { Product } from './models/Types';
 
 const companyName = 'Bogdarone S.R.L.';
 const navItems = ['About', 'Contact'];
@@ -71,12 +69,8 @@ function App() {
 						onClick: handleContactClick
 					}
 				]}
-			/>{
-				// realmOfInterest ? 
-				<MenuBar/> 
-					// : <RealmOfInterestMenuPlaceholder/>
-			}
-			<PageContainer page={displayedPage} />
+			/>
+			<PageContentDisplay page={displayedPage} />
 			<AddsContainer />
 			<PageFooter />
 		</Stack>

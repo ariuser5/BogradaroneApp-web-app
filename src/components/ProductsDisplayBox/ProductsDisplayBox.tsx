@@ -4,7 +4,7 @@ import { Product } from '../../models/Types';
 import ProductCard from '../ProductCard';
 import Overlay from './Overlay';
 import EmptyContentMessage from './EmptyContentMessage';
-import ContentPagination from './ContentPagination';
+import Pagination from './Pagination';
 import { type } from 'os';
 
 interface ProductsDisplayBoxProps {
@@ -16,11 +16,11 @@ export default function ProductsDisplayBox(props: ProductsDisplayBoxProps): JSX.
 	
 	
 	return (
-		<Box 
+		<Box
+			className="Page-Content-Row-Item"
 			sx={{ 
 				flexGrow: 1,
 				justifyContent: 'center',
-				padding: '10px',
 				border: '2px solid green',
 			}}
 		>
@@ -80,9 +80,9 @@ function ContentWithPagination(props: ContentWithPaginationProps): JSX.Element {
 
 	return (
 		<React.Fragment>
-			<ContentPagination page={pageNo} count={pageCount} onChange={handlePageChange}/>
+			<Pagination page={pageNo} count={pageCount} onChange={handlePageChange}/>
 			<CardsFlex products={props.products}/>
-			<ContentPagination page={pageNo} count={pageCount} onChange={handlePageChange}/>
+			<Pagination page={pageNo} count={pageCount} onChange={handlePageChange}/>
 		</React.Fragment>
 	);
 }
@@ -96,20 +96,13 @@ function CardsFlex({products}: {
 		cards = products.map((product, index) => (
 			<ProductCard
 				key={index}
-				margin='10px'
 				imageUrl={product.image}
 			/>
 		));
 	}
 	
 	return (
-		<Box
-			sx={{
-				display: 'flex',
-				flexWrap: 'wrap',
-				justifyContent: 'left',
-				border: '2px solid red',
-			}}>
+		<Box className="Product-Card-Flex">
 			{cards}
 		</Box>
 	);

@@ -13,16 +13,49 @@
   }
 }
 
-.Page-Container {
+.Page-Content {
   background-color: #bcca7c;
   min-height: 100vh;
   display: flex;
-  padding-inline: 15px;
-  /* flex-direction: column; */
+  /* padding-inline: 15px; */
+  flex-direction: column;
   /* align-items: center; */
   /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.Page-Content-Row {
+  display: flex;
+  flex-direction: row;
+  /* padding: 0 15px; */
+}
+
+.Page-Content-Row-Item {
+  padding-inline: 5px;
+}
+
+.Pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.Product-Card-Flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  border: 2px solid red;
+}
+
+.Product-Card {
+  cursor: pointer;
+  width: 300px;
+  height: 450px;
+  margin: 10px;
+}
+
+.Search-Menu-Bar {
+  width: 100%;
 }
 
 .App-link {

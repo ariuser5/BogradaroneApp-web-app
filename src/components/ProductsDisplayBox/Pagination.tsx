@@ -1,4 +1,4 @@
-import { Pagination } from '@mui/material';
+import { Pagination as MuiPagination } from '@mui/material';
 import { Box } from '@mui/system';
 
 const defaultPage: number = 1;
@@ -9,14 +9,10 @@ type ContentPaginationProps = {
 	onChange?: (event: React.ChangeEvent<unknown>, page: number) => void;
 }
 
-export default function ContentPagination(props: ContentPaginationProps): JSX.Element {
+export default function Pagination(props: ContentPaginationProps): JSX.Element {
 	return (
-		<Box
-			sx={{
-				display: 'flex',
-				justifyContent: 'center',
-			}}>
-			<Pagination 
+		<Box className="Pagination">
+			<MuiPagination
 				page={props.page ?? defaultPage} 
 				count={props.count}
 				onChange={props.onChange}

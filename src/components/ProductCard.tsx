@@ -3,18 +3,11 @@ import { Box, Card } from '@mui/material';
 interface ProductCardProps {
 	imageUrl?: string,
 	description?: string,
-	margin?: string,
 }
 
 export default function ProductCard(props: ProductCardProps): JSX.Element {
 	return (
-		<Card
-			sx={{
-				cursor: 'pointer',
-				width: '300px',
-				height: '450px',
-				margin: props.margin || '0px',
-			}}>
+		<Card className="Product-Card">
 			<Box 
 				sx={{ 
 					width: 'auto',

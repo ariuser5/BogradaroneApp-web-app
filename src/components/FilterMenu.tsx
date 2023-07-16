@@ -16,7 +16,8 @@ export default function FilterMenu(props: Props): JSX.Element {
 	);
 	
 	return (
-		<Stack
+		<Stack 
+			className="Page-Content-Row-Item"
 			spacing='5px'
 			sx={{ paddingTop: '16px'}}
 		>
